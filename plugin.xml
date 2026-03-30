@@ -20,6 +20,10 @@
         <clobbers target="SQLitePlugin" />
     </js-module>
 
+    <platform name="electron">
+        <framework src="src/electron" />
+    </platform>
+
     <platform name="browser">
         <!-- sql-asm js item must come before SQLiteProxy for SQLiteProxy.js to work on browser -->
         <js-module src="node_modules/cordova-sqlite-storage-dependencies/sql-asm-memory-growth.js" name="sql">
