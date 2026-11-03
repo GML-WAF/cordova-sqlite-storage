@@ -16,7 +16,7 @@ function resolveDbPathFromName(name) {
         throw new Error('Invalid database name');
     }
 
-    const baseDir = path.join(app.getPath('userData'), 'Databases');
+    const baseDir = path.join(app.getPath('userData'), 'data');
     fs.mkdirSync(baseDir, { recursive: true });
 
     return path.join(baseDir, path.basename(name));

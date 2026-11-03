@@ -4,12 +4,12 @@
   "main": "index.js",
   "cordova": { "serviceName": "SQLitePlugin" },
   "dependencies": {
-    "better-sqlite3": "^9.4.0"
+    "better-sqlite3": "^11.10.0"
   },
   "devDependencies": {
-    "@electron/rebuild": "^3.7.0"
+    "@electron/rebuild": "^4.2.1"
   },
   "scripts": {
-    "rebuild": "electron-rebuild -f -w better-sqlite3"
+    "rebuild": "@electron/rebuild -f -w better-sqlite3"
   }
 }
