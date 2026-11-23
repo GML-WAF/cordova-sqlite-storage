@@ -159,10 +159,11 @@ async function executeSqlBatch(args) {
         }
 
         try {
-            const isSelect = isSelectQuery(sql);
+            const stmt = db.prepare(sql);
 
-            if (isSelect) {
-                const stmt = db.prepare(sql);
+            // stmt.reader is true for every statement that returns rows
+            // (SELECT, WITH, PRAGMA, EXPLAIN, VALUES, ... RETURNING)
+            if (stmt.reader) {
                 const rows = stmt.all(...params);
                 results.push({
                     type: 'success',
@@ -172,7 +173,6 @@ async function executeSqlBatch(args) {
                     }
                 });
             } else {
-                const stmt = db.prepare(sql);
                 const info = stmt.run(...params);
                 results.push({
                     type: 'success',
